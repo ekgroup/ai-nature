@@ -26,11 +26,11 @@
         <![endif]-->
     </head>
 
-    <body class="">
+    <body class="pc">
 	
 		<div class="sidebar fleft">
 			<h1>인공지능 및 증강현실 기반의 자연학습 지원서비스 개발</h1>
-			<h2>스토리 기반 콘텐츠</h2>
+			<h2>스토리 <span class="textblock_m">기반</span> <span class="textblock_m">콘텐츠</span></h2>
 			<hr/>
 			<ul class="year_list clearfix">
 				<li><a href="#second1" class="on">2018_1</a></li>
@@ -138,14 +138,14 @@
 				<li type="vod" >VOD</li>
 				<li type="aod" >AOD</li>
 				<li type="page">PAGE</li>
-				<li type="ani" >ANIMATION</li>
+				<li type="ani"  class="anili">ANIMATION</li>
 			</ul>
 		</div>
 		<div class="container fleft">
 			<div class="btn_area">
-				<button type="button" class="on" value="wh">Light Theme</button>
+				<!--button type="button" class="on" value="wh">Light Theme</button>
 				<button type="button" class=""   value="bk">Dark Theme</button>
-				<button type="button" class=""   value="pc">PC Version</button>
+				<button type="button" class=""   value="pc">PC Version</button-->
 			</div>
 			<div class="mockup_wrapper">
 				<div class="content_wrapper">
@@ -162,12 +162,18 @@
 			var dheight = $(document).height();
 			// Sidebar Height
 			$(window).on('load resize', function(){
-				$('.sidebar').height(dheight - 26);
+				// $('.sidebar').height(dheight - 26);
+				$('.sidebar').height(dheight);
 				$('.container').height(dheight);
 				//console.log(dheight);
 			});
 			//
 			$(document).ready(function(){
+				// PC로 보이도록
+				var mw_height = dheight - 90;
+
+				$('.content_wrapper').height(mw_height);
+
 				// Year Tab
 				$('.year_list a').each(function(){
 					$(this).click(function(){
@@ -179,6 +185,7 @@
 					});
 				});
 				// Theme Change
+				/*
 				$('.btn_area button').each(function(){
 					$(this).click(function(){
 						$('.btn_area button').removeClass('on');
@@ -200,11 +207,14 @@
 						}
 					});
 				});
+				*/
 				// Load Contents
 				$('.story_list li').click(function(){
 					var link_url = $(this).attr('data-url');
+					$('#webview').height(mw_height);
 					$('#webview').attr('src', link_url);
 				});
+				$(".story_list li").eq(0).trigger('click');
 			});
 				
 		</script>
