@@ -1,5 +1,5 @@
 /* 
-Project : ÀÚ¿¬ÇĞ½À ½ºÅä¸®±â¹İ ÄÜÅÙÃ÷
+Project : ìì—°í•™ìŠµ ìŠ¤í† ë¦¬ê¸°ë°˜ ì½˜í…ì¸ 
 Author  : kang2oon
 Date    : 2018-01-04
 */
@@ -18,7 +18,7 @@ html, body {font-family:'Iropke Batang', Dotum, sans-serif;font-size:14px;-webki
 body.bk{background: #e5e5e5;}
 body.pc{}
 .sidebar{
-	position:relative;height:100%;width:300px;background:#3f3f3f;color:#fff;padding:13px 30px;
+	position:relative;/*height:100%;*/width:300px;background:#3f3f3f;color:#fff;padding:13px 30px;
 	-webkit-box-shadow: 3px 0px 13px 0px rgba(0,0,0,0.5);
 	   -moz-box-shadow: 3px 0px 13px 0px rgba(0,0,0,0.5);
 			box-shadow: 3px 0px 13px 0px rgba(0,0,0,0.5);
@@ -78,3 +78,14 @@ button[value='wh']{background:#fff;}
 button[value='bk']{background:#454545;border-color:#333;}
 button[value='pc']{background:#99b3ff;border-color:#7396ff;}
 button.on{border:4px solid #f60;}
+.textblock_m{display:inline-block;}
+
+@media screen and (max-width: 768px){
+	
+	.sidebar{width:190px; padding:13px 15px;}
+	.container{position:relative;width:calc(100% - 190px);}
+	.year_list li{width:100%;}
+	.story_list li{cfloat:none;width:100%;}
+	.textblock_m{display:block;}
+	.legend_list li{float:none; width:100%;}
+}
