@@ -19,7 +19,7 @@
 		<!-- CSS -->
 		<link type="text/css" rel="stylesheet" href="inc/fonts/iropke.css">
 		<link type="text/css" rel="stylesheet" href="inc/css/kang2oon.reset.min.css">
-		<link type="text/css" rel="stylesheet" href="inc/css/style.css?t=1">
+		<link type="text/css" rel="stylesheet" href="inc/css/style.css?t=2">
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -30,38 +30,44 @@
 	</head>
 
 	<body class="pc">
+		<div class=" sidebar_before fleft">
+			<div id="sidebar_list_btn" class=" sidebar_list_btn"></div>
 
-		<div class="sidebar fleft">
-			<h1>인공지능 및 증강현실 기반의 자연학습 지원서비스 개발</h1>
-			<h2>스토리 기반 <span class="textblock_m">콘텐츠</span></h2>
-			<hr/>
+			<div id="sidebar" class="sidebar fleft">
+				<div class="mob_close_area">
+					<div class="sidebar_list_btn close" id="id_btn_sidebar_close"></div>
+				</div>
+				<h1>인공지능 및 증강현실 기반의 <span style="display:inline-block;">자연학습</span> 지원서비스 개발</h1>
+				<h2>스토리 기반 <span class="textblock_m">콘텐츠</span></h2>
+				<hr/>
 
-			<ul id="cate_navi" class="cate_navi clearfix">
-				<li><a href="javascript:" data-cate="0" class="on">전체</a></li>
-				<li><a href="javascript:" data-cate="1">VOD</a></li>
-				<li><a href="javascript:" data-cate="2">AOD</a></li>
-				<li><a href="javascript:" data-cate="3">PAGE</a></li>
-				<li><a href="javascript:" data-cate="4">ANI</a></li>
-			</ul>
+				<ul id="cate_navi" class="cate_navi clearfix">
+					<li><a href="javascript:" data-cate="0" class="on">전체</a></li>
+					<li><a href="javascript:" data-cate="1">VOD</a></li>
+					<li><a href="javascript:" data-cate="2">AOD</a></li>
+					<li><a href="javascript:" data-cate="3">PAGE</a></li>
+					<li><a href="javascript:" data-cate="4">ANI</a></li>
+				</ul>
 
-			<ul id="page_navi" class="page_navi clearfix">
-				<li><a href="javascript:" class="on" onclick="changePage(1);">1</a></li>
-				<li><a href="javascript:" onclick="changePage(2);">2</a></li>
-				<li><a href="javascript:" onclick="changePage(3);">3</a></li>
-				<li><a href="javascript:" onclick="changePage(4);">4</a></li>
-				<li><a href="javascript:" onclick="changePage(5);">5</a></li>
-			</ul>
+				<ul id="page_navi" class="page_navi clearfix">
+					<li><a href="javascript:" class="on" onclick="changePage(1);">1</a></li>
+					<li><a href="javascript:" onclick="changePage(2);">2</a></li>
+					<li><a href="javascript:" onclick="changePage(3);">3</a></li>
+					<li><a href="javascript:" onclick="changePage(4);">4</a></li>
+					<li><a href="javascript:" onclick="changePage(5);">5</a></li>
+				</ul>
 
-			<ul id="story_list" class="story_list clearfix">
-			</ul>
+				<ul id="story_list" class="story_list clearfix">
+				</ul>
 
-			<div class="legend">범례</div>
-			<ul class="legend_list clearfix">
-				<li type="vod" >VOD</li>
-				<li type="aod" >AOD</li>
-				<li type="page">PAGE</li>
-				<li type="ani"  class="anili">ANIMATION</li>
-			</ul>
+				<div class="legend">범례</div>
+				<ul class="legend_list clearfix">
+					<li type="vod" >VOD</li>
+					<li type="aod" >AOD</li>
+					<li type="page">PAGE</li>
+					<li type="ani"  class="anili">ANIMATION</li>
+				</ul>
+			</div>
 		</div>
 		<div class="container fleft">
 			<div class="btn_area">
@@ -299,27 +305,27 @@
 					$('.cate_navi a').removeClass('on');
 					$(this).addClass('on');
 					changeCate($(this).attr('data-cate'));
-
-						//- $('.cate_list').hide();
-						//- $($(this).attr('href')).show();
 				});
 
 				$('.page_navi a').on('click',function(e){
 					$('.page_navi a').removeClass('on');
 					$(this).addClass('on');
 					changePage($(this).attr('data-page'));
-
-						//- $('.cate_list').hide();
-						//- $($(this).attr('href')).show();
 				});
 
-				// Load Contents
-					//				$('.story_list li').click(function(){
-					//					var link_url = $(this).attr('data-url');
-					//					$('#webview').height(mw_height);
-					//					$('#webview').attr('src', link_url);
-					//				});
+				$('#id_btn_sidebar_close').on('click', function(){
+					jQuery('#sidebar').hide();
+					jQuery('#sidebar_list_btn').show();
+					jQuery('body').addClass('full');
+				});
 
+				$('#sidebar_list_btn').on('click', function(){
+					jQuery('body').removeClass('full');
+					jQuery('#sidebar_list_btn').hide();
+					jQuery('#sidebar').show();
+				});
+
+				// Init Left Category
 				changeCate(0);
 				$(".story_list li").eq(0).trigger('click');
 			});
